@@ -8,7 +8,7 @@ interface ButtonProps {
     text: string;
     startIcon?: ReactElement;
     endIcon?:ReactElement;
-    onClick: ()=>void
+    // onClick: ()=>void
 }
 const variantsStyles = {
     "primary" : "bg-blue-600 text-white rounded-2xl",
