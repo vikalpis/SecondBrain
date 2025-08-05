@@ -11,8 +11,8 @@ interface ButtonProps {
     // onClick: ()=>void
 }
 const variantsStyles = {
-    "primary" : "bg-blue-600 text-white rounded-2xl",
-    "secondary" : "bg-blue-200 <text-blue-600></text-blue-600> rounded-2xl"
+    "primary" : "bg-blue-600 text-white ",
+    "secondary" : "bg-blue-200 text-blue-600"
 }
 const sizeStyles = {
     "sm" : "py-1 px-2",
