@@ -19,9 +19,12 @@ const sizeStyles = {
     "md" : "py-2 px-4",
     "lg" : "py-4 px-6"
 }
-const defaultStuyles = "rounded-lg flex"
+const defaultStuyles = "rounded-lg flex font-light justify-center items-center"
 
 export const Button = (props :  ButtonProps) => {
-    return <button className={`${variantsStyles[props.variants]}${defaultStuyles} ${sizeStyles[props.size]}`} >
-        {props.startIcon ? <div className="pr-2">{props.startIcon}</div>:null}{props.text}{props.endIcon}</button>
+    return   <button className={`${variantsStyles[props.variants]} ${defaultStuyles} ${sizeStyles[props.size]}`}>
+    {props.startIcon && <div className="pr-2">{props.startIcon}</div>}
+    {props.text}
+    {props.endIcon}
+  </button>
 }
