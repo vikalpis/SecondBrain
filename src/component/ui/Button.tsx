@@ -8,7 +8,7 @@ interface ButtonProps {
     text: string;
     startIcon?: ReactElement;
     endIcon?:ReactElement;
-    // onClick: ()=>void
+    onClick?: ()=>void
 }
 const variantsStyles = {
     "primary" : "bg-blue-600 text-white ",
@@ -19,10 +19,10 @@ const sizeStyles = {
     "md" : "py-2 px-4",
     "lg" : "py-4 px-6"
 }
-const defaultStuyles = "rounded-lg flex font-light justify-center items-center"
+const defaultStuyles = "rounded-lg flex font-light justify-center items-center cursor-pointer"
 
 export const Button = (props :  ButtonProps) => {
-    return   <button className={`${variantsStyles[props.variants]} ${defaultStuyles} ${sizeStyles[props.size]}`}>
+    return   <button onClick={props.onClick} className={`${variantsStyles[props.variants]} ${defaultStuyles} ${sizeStyles[props.size]}`}>
     {props.startIcon && <div className="pr-2">{props.startIcon}</div>}
     {props.text}
     {props.endIcon}

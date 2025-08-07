@@ -8,7 +8,7 @@ interface Cradprops{
 
 export function Card ({title, link, type}: Cradprops){
     return <div>
-        <div className="bg-white border border-gray-200 max-w-86 rounded-md min-h-40 min-w-72">
+        <div className="bg-white border border-gray-200 max-w-86 rounded-md min-h-40 min-w-72 ">
             <div className="flex justify-between">
                 <div className="flex items-center p-2">
                     <ShareIcon size="md"/>
