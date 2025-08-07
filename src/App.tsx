@@ -6,10 +6,15 @@ import { Card } from './component/ui/Card'
 import { CreateContentModel } from './component/ui/CreateContentModel'
 import {PlusIcon} from "./icons/PlusIcon"
 import { ShareIcon } from './icons/ShareIcon'
+import { Sidebar } from './component/ui/Sidebar'
 
 function App() {
   const [openModel, setOpenModel] = useState(false)
-  return <div className='p-2'> 
+  return <div>
+
+    <Sidebar/>
+  
+  <div className='p-4 ml-72 min-h-screen bg-gray-200 border-2'> 
         
         <CreateContentModel open={openModel} closeModel={()=>{
            setOpenModel(e => !e)
@@ -33,7 +38,7 @@ function App() {
 
      
     </div>
-    
+    </div>
 }
 
 export default App
