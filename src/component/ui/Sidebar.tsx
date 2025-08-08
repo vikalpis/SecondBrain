@@ -6,9 +6,9 @@ import { SidebarItem } from "./SidebarItem";
 
 export function Sidebar(){
     return <div className="h-screen bg-white border-r w-76 fixed left-0 top-0">
-       <div className="flex items-center p-2 ">
+       <div className="flex items-center p-2 m-2 cursor-pointer  ">
         <LogoIcon size="xl"/> 
-        <div className="p-2 font-bold text-2xl tracking-tight">
+        <div className="p-2 font-bold text-2xl tracking-tight ">
             SecondBrain
             </div>
         </div> 

@@ -1,13 +1,14 @@
 
 import './App.css'
-import Dashboard from './pages/Dashboard'
+// import Dashboard from './pages/Dashboard'
+import { Signup } from './pages/Signup'
 
 
 function App() {
   
-  return <div>
-    <Dashboard/>
-    </div>
+  return  <Signup/>
+   
+   
 }
 
 export default App
