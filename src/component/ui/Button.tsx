@@ -24,7 +24,7 @@ const sizeStyles = {
 const defaultStuyles = "rounded-lg flex font-light justify-center items-center cursor-pointer"
 
 export const Button = (props :  ButtonProps) => {
-    return   <button onClick={props.onClick} className={`${variantsStyles[props.variants]} ${defaultStuyles} ${sizeStyles[props.size]}  ${props.fullwidth? "w-full flex justify-center" : ""} ${props.loading? 'loading..': ""}`}>
+    return   <button onClick={props.onClick} disabled={props.loading} className={`${variantsStyles[props.variants]} ${defaultStuyles} ${sizeStyles[props.size]}  ${props.fullwidth? "w-full flex justify-center" : ""} ${props.loading? 'loading..': ""}  ${props.loading ? "opacity-45" : ""}`  } >
     {props.startIcon && <div className="pr-2">{props.startIcon}</div>}
     {props.text}
     {props.endIcon}
