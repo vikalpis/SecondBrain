@@ -7,9 +7,11 @@ import { CreateContentModel } from '../component/ui/CreateContentModel'
 import {PlusIcon} from "../icons/PlusIcon"
 import { ShareIcon } from '../icons/ShareIcon'
 import { Sidebar } from '../component/ui/Sidebar'
+import { useContent } from '../hooks/useContent'
 
 function Dashboard() {
   const [openModel, setOpenModel] = useState(false)
+  const contents = useContent()
   return <div>
 
     <Sidebar/>
@@ -29,10 +31,16 @@ function Dashboard() {
      </div>
 
     <div className='flex gap-4'>
-      <Card title='new' link='https://x.com/benawad/status/1952436349677551758' type='twitter'/>
+      
+      {contents.map(({type, link, title})=>
+      <Card
+      title= {title}
+      link = {link}
+      type={type}/>
+      )}
+      
 
-      <Card title='second' link='https://www.youtube.com/watch?v=p6ca7gq5H70&list=RDp6ca7gq5H70&start_radio=1' type='youtube'/>
-
+      
     </div>
    
 
