@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../App.css'
 import { Button } from '../component/ui/Button'
 import { Card } from '../component/ui/Card'
@@ -10,8 +10,10 @@ import { useContent } from '../hooks/useContent'
 
 function Dashboard() {
   const [openModel, setOpenModel] = useState(false)
-  const contents = useContent()
-
+  const {contents, refresh} = useContent()
+  useEffect(()=>{
+    refresh();
+  },[openModel])
   return (
     <div className="flex flex-col md:flex-row">
       <Sidebar />

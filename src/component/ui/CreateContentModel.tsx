@@ -13,7 +13,7 @@ enum ContentType {
     Youtube = "Youtube",
     Twitter = "Twitter"
 }
-  console.log(localStorage.getItem("token"));
+  
 
 export function CreateContentModel({open, closeModel}: any){
     const linkRef = useRef<HTMLInputElement>(null);
@@ -28,6 +28,7 @@ export function CreateContentModel({open, closeModel}: any){
                 token: localStorage.getItem("token") || "" 
             }
           });
+        
         } catch (err: any) {
           console.error("Error adding content:", err.response?.data || err.message);
         }
@@ -57,8 +58,9 @@ export function CreateContentModel({open, closeModel}: any){
                     }}/>
                </div>
                <div className="flex justify-center">
-                <Button variants="primary" size="md" text="Submit" onClick={()=>{
-                    addContent()
+                <Button variants="primary" size="md" text="Submit" onClick={async()=>{
+                    await addContent();
+                   closeModel();
                 }} />
                </div>
             </span>

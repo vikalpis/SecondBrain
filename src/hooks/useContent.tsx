@@ -4,17 +4,26 @@ import { BACKEND_URL } from "../component/ui/config";
 
 export function useContent(){
     const [contents, setContents] = useState([]);
+    function refresh(){
+      axios.get(`${BACKEND_URL}/api/v1/content`, {
+        headers: {
+            token: localStorage.getItem("token") || "" 
+        }
+      }) 
+      .then((response)=>{
+        setContents(response.data.content);
+      })
 
+    }
 useEffect(()=>{
-   axios.get(`${BACKEND_URL}/api/v1/content`, {
-            headers: {
-                token: localStorage.getItem("token") || "" 
-            }
-          }) 
-          .then((response)=>{
-            setContents(response.data.content);
-          })
-},[])
+      refresh();
+      let interval = setInterval(()=>{
+        refresh();
+      },10*1000)
 
-    return contents;
+      return () => {
+        clearInterval(interval)
+      }
+},[])
+    return {contents, refresh};
 }
