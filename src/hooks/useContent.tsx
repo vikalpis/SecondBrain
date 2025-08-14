@@ -1,40 +1,54 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { BACKEND_URL } from "../component/ui/config";
 
 export function useContent() {
-  const [contents, setContents] = useState([]);
+  const [contents, setContents] = useState<any[]>([]);
+  const [currentType, setCurrentType] = useState<string>(""); 
+  const abortRef = useRef<AbortController | null>(null);
 
-  function refresh(type = "") {
+  const refresh = useCallback((type?: string) => {
+    const effectiveType = (type ?? currentType) || "";
     let url = `${BACKEND_URL}/api/v1/content`;
-    if (type) {
-      url += `${type}`;
-    }
+    if (effectiveType) url += `/${encodeURIComponent(effectiveType)}`;
+
+    // cancel any in-flight request
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
 
     axios
       .get(url, {
-        headers: {
-          token: localStorage.getItem("token") || ""
-        }
+        headers: { token: localStorage.getItem("token") || "" },
+        signal: controller.signal as any, // axios v1 supports AbortController
       })
-      .then((response) => {
-        setContents(response.data.content);
-      })
+      .then((res) => setContents(res.data?.content ?? []))
       .catch((err) => {
+        // ignore canceled requests; log real errors 
+        if (err?.code === "ERR_CANCELED" || err?.name === "CanceledError") return;
         console.error("Error fetching content:", err);
       });
-  }
+  }, [currentType]);
 
+  // initial + keep polling using the *current* type
   useEffect(() => {
-    refresh(); // initial fetch
-    let interval = setInterval(() => {
-      refresh(); // default: fetch all
-    }, 10 * 1000);
-
+    refresh();
+    const id = setInterval(() => refresh(), 10_000);
     return () => {
-      clearInterval(interval);
+      clearInterval(id);
+      abortRef.current?.abort();
     };
-  }, []);
+  }, [refresh]);
 
-  return { contents, refresh };
+  // if currentType changes (e.g., from Sidebar), fetch that type
+  useEffect(() => {
+    refresh(currentType);
+  }, [currentType, refresh]);
+
+  return {
+    contents,
+    refresh,                 // still available if you ever want to force refresh
+    setType: setCurrentType, // call this from Sidebar clicks
+    currentType,
+  };
 }
