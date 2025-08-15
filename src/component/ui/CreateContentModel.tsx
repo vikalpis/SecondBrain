@@ -11,7 +11,8 @@ import { BACKEND_URL } from "./config";
 
 enum ContentType {
     Youtube = "Youtube",
-    Twitter = "Twitter"
+    Twitter = "Twitter",
+    Documents = "Documents"
 }
   
 
@@ -55,7 +56,7 @@ export function CreateContentModel({open, closeModel}: any){
                     }}/>
                 <Button text="Twitter" variants={type === ContentType.Twitter ? "primary"  :"secondary"} size="md" onClick={()=>{
                     setType(ContentType.Twitter)
-                    }}/>
+                    }}/>                    
                </div>
                <div className="flex justify-center">
                 <Button variants="primary" size="md" text="Submit" onClick={async()=>{

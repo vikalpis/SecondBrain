@@ -3,7 +3,7 @@ import { ShareIcon } from "../../icons/ShareIcon";
 interface Cradprops {
   title: string;
   link: string;
-  type: "Twitter" | "Youtube";
+  type: "Twitter" | "Youtube"| "Document";
 }
 
 function getYoutubeEmbedUrl(url: string) {
@@ -53,6 +53,8 @@ export function Card({ title, link, type }: Cradprops) {
               <a href={link.replace("x", "twitter")}></a>
             </blockquote>
           )}
+
+         
         </div>
       </div>
     </div>
