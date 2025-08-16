@@ -7,10 +7,29 @@ import { Button } from '../component/ui/Button'
 import { CreateContentModel } from '../component/ui/CreateContentModel'
 import { PlusIcon } from "../icons/PlusIcon"
 import { ShareIcon } from '../icons/ShareIcon'
+import axios from 'axios'
+import { BACKEND_URL } from '../component/ui/config'
 
 function Dashboard() {
   const [openModel, setOpenModel] = useState(false)
-  const { contents, setType } = useContent()
+  const { contents, setContents, setType } = useContent()   // make sure useContent returns setContents
+
+  // delete logic
+  async function DeleteCard(id: string) {
+    try {
+      await axios.delete(`${BACKEND_URL}/api/v1/content`, {
+        headers: {
+          token: localStorage.getItem("token") || ""
+        },
+        data: { id }   // 👈 sending content id in body
+      })
+
+      // update frontend state after deletion
+      setContents(prev => prev.filter(item => item._id !== id))
+    } catch (err) {
+      console.error("Error deleting content", err)
+    }
+  }
 
   return (
     <div className="flex flex-col md:flex-row">
@@ -40,7 +59,13 @@ function Dashboard() {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {contents.map(({ _id, type, link, title }) => (
-            <Card key={_id || link} title={title} link={link} type={type} />
+            <Card
+              key={_id || link}
+              title={title}
+              link={link}
+              type={type}
+              onClick={() => DeleteCard(_id)}  
+            />
           ))}
         </div>
       </div>

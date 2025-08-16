@@ -33,11 +33,11 @@ export function useContent() {
   // initial + keep polling using the *current* type
   useEffect(() => {
     refresh();
-    const id = setInterval(() => refresh(), 10_000);
-    return () => {
-      clearInterval(id);
-      abortRef.current?.abort();
-    };
+    // const id = setInterval(() => refresh(), 10_000);
+    // return () => {
+    //   clearInterval(id);
+    //   abortRef.current?.abort();
+    // };
   }, [refresh]);
 
   // if currentType changes (e.g., from Sidebar), fetch that type
@@ -47,6 +47,7 @@ export function useContent() {
 
   return {
     contents,
+    setContents,
     refresh,                 // still available if you ever want to force refresh
     setType: setCurrentType, // call this from Sidebar clicks
     currentType,

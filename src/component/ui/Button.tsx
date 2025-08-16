@@ -14,7 +14,7 @@ interface ButtonProps {
 }
 const variantsStyles = {
     "primary" : "bg-blue-600 text-white ",
-    "secondary" : "bg-blue-200 text-blue-600"
+    "secondary" : "bg-blue-200 text-blue-600 hover:text-white"
 }
 const sizeStyles = {
     "sm" : "py-1 px-2",

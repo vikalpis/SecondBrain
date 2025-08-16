@@ -4,6 +4,7 @@ interface Cradprops {
   title: string;
   link: string;
   type: "Twitter" | "Youtube"| "Document";
+  onClick?: ()=>void
 }
 
 function getYoutubeEmbedUrl(url: string) {
@@ -15,10 +16,10 @@ function getYoutubeEmbedUrl(url: string) {
     : url;
 }
 
-export function Card({ title, link, type }: Cradprops) {
+export function Card({ title, link, type, onClick }: Cradprops) {
   return (
     <div>
-      <div className="bg-white border border-gray-200 max-w-86 rounded-md min-h-40 min-w-72 ">
+      <div onClick={onClick} className="bg-white border border-gray-200 max-w-86 rounded-md min-h-40 min-w-72 ">
         <div className="flex justify-between">
           <div className="flex items-center p-2">
             <ShareIcon size="md" />
