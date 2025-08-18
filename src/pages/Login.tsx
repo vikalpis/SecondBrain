@@ -32,11 +32,16 @@ export function Login(){
         Login
     </div>
         <Input ref={usernameRef} placeholder="Username" />
-        <Input ref={passwordRef} placeholder="Password"/>
+        <Input  ref={passwordRef} placeholder="Password"/>
 
         <div className="flex  justify-center" >
         <Button variants="primary" text="Submit" size="md" fullwidth={true} loading={disabled} onClick={()=>{
-            Login()
+            
+                 Login()
+            
+                alert('input not provided!')
+            
+           
             setDisabled(e=>!e)
         }}/>
    
