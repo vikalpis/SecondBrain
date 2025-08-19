@@ -9,6 +9,7 @@ import { Input } from "./Input";
 import axios from "axios";
 import { BACKEND_URL } from "./config";
 
+//@ts-ignore
 enum ContentType {
     Youtube = "Youtube",
     Twitter = "Twitter",

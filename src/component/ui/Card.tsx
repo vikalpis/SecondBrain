@@ -3,6 +3,8 @@ import { DeleteIcon } from "../../icons/DeleteIcon";
 import { ShareIcon } from "../../icons/ShareIcon";
 import { BACKEND_URL } from "./config";
 import { useContent } from "../../hooks/useContent";
+import { ShareModel } from "../ShareModel";
+import { useState } from "react";
 
 interface Cradprops {
   _id : string;
@@ -25,6 +27,7 @@ function getYoutubeEmbedUrl(url: string) {
 
 export function Card({ title, link, type,_id }: Cradprops) {
   const {setContents} = useContent()
+  const [openShare, setOpenShare] = useState(false)
    // delete logic
    async function DeleteCard(id: string) {
     try {
@@ -43,6 +46,7 @@ export function Card({ title, link, type,_id }: Cradprops) {
   }
   return (
     <div>
+      <ShareModel openShare={openShare} closeShare={()=> setOpenShare((e)=>!e)}/>
       <div  className="bg-white border border-gray-200 max-w-86 rounded-md min-h-40 min-w-72 ">
         <div className="flex justify-between">
           <div className="flex items-center p-2">
@@ -55,7 +59,7 @@ export function Card({ title, link, type,_id }: Cradprops) {
              
             </div>
             <div className="pr-2">
-              <ShareIcon size="md" />
+              <ShareIcon size="md" onClick={()=>setOpenShare((e)=>!e)}/>
             </div>
           </div>
         </div>
