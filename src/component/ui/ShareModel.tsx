@@ -1,7 +1,7 @@
 
 //another controlled component
-import { CrossIcon } from "../icons/CrossIcon";
-import { Button } from "./ui/Button";
+import { CrossIcon } from "../../icons/CrossIcon";
+import { Button } from "./Button";
 
 export function ShareModel({openShare, closeShare}:any){
     const hash = "diudiajsdowhehqow ";
@@ -10,15 +10,10 @@ export function ShareModel({openShare, closeShare}:any){
      try {
         await navigator.clipboard.writeText(hash);
         alert('link copied to your clipboard')
-    } catch (error) {
+        } catch (error) {
         console.error("Failed to copy:", error);
-        
+        }
     }
-    
-    }
-   
-
-
     return <div>
      {openShare && <div className=" w-screen h-screen bg-slate-400 opacity-60 fixed top-0 left-0 flex justify-center">
         <div className="flex items-center justify-center ">

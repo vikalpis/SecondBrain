@@ -3,7 +3,7 @@ import { DeleteIcon } from "../../icons/DeleteIcon";
 import { ShareIcon } from "../../icons/ShareIcon";
 import { BACKEND_URL } from "./config";
 import { useContent } from "../../hooks/useContent";
-import { ShareModel } from "../ShareModel";
+import { ShareModel } from "./ShareModel";
 import { useState } from "react";
 
 interface Cradprops {
