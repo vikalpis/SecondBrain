@@ -20,15 +20,18 @@ export function Login() {
     if (!username || !password) {
       alert("Both fields are required!");
       return;
-    }
+    } 
 
     try {
       setDisabled(true);
+     
+      
       const response = await axios.post(`${BACKEND_URL}/api/v1/user/login`, {
         username,
         password,
       });
-
+    
+      
       const jwt = response.data.token;
       localStorage.setItem("token", jwt);
 

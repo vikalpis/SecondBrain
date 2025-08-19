@@ -12,22 +12,23 @@ import { BACKEND_URL } from '../component/ui/config'
 
 function Dashboard() {
   const [openModel, setOpenModel] = useState(false)
-  const { contents, setContents, setType } = useContent()   // make sure useContent returns setContents
+  const { contents, setType } = useContent()   // make sure useContent returns setContents
 
-  // delete logic
-  async function DeleteCard(id: string) {
+
+
+  async function shareHandler(share:string){
     try {
-      await axios.delete(`${BACKEND_URL}/api/v1/content`, {
-        headers: {
-          token: localStorage.getItem("token") || ""
+      await axios.post(`${BACKEND_URL}/api/v1/content/brain/share`, {
+        headers : {
+          token : localStorage.getItem("token") || ""
         },
-        data: { id }   // 👈 sending content id in body
+        data:{
+          share
+        }
       })
-
-      // update frontend state after deletion
-      setContents(prev => prev.filter(item => item._id !== id))
-    } catch (err) {
-      console.error("Error deleting content", err)
+    } catch (error) {
+      console.log(error);
+      
     }
   }
 
@@ -54,6 +55,7 @@ function Dashboard() {
             text="Share Brain"
             size="md"
             startIcon={<ShareIcon size="md" />}
+            onClick={()=>shareHandler}
           />
         </div>
 
@@ -61,10 +63,10 @@ function Dashboard() {
           {contents.map(({ _id, type, link, title }) => (
             <Card
               key={_id || link}
+              _id= {_id}
               title={title}
               link={link}
               type={type}
-              onClick={() => DeleteCard(_id)}  
             />
           ))}
         </div>
