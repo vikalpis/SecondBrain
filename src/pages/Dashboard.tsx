@@ -9,6 +9,7 @@ import { PlusIcon } from "../icons/PlusIcon"
 import { ShareIcon } from '../icons/ShareIcon'
 import axios from 'axios'
 import { BACKEND_URL } from '../component/ui/config'
+import { SearchInput } from '../component/ui/SearchInput'
 
 function Dashboard() {
   const [openModel, setOpenModel] = useState(false)
@@ -43,6 +44,7 @@ function Dashboard() {
         />
 
         <div className="flex flex-col sm:flex-row justify-end gap-2 mb-4">
+          <SearchInput placeholder='Search your Brain'/>
           <Button
             variants="primary"
             text="Add Content"
