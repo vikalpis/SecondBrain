@@ -8,7 +8,7 @@ interface ButtonProps {
     text: string;
     startIcon?: ReactElement;
     endIcon?:ReactElement;
-    onClick?: ()=>void;
+    onClick?: (e:any)=>void;
     fullwidth?: boolean;
     loading?: boolean;
 }
@@ -23,7 +23,7 @@ const sizeStyles = {
     "xl" :  "py-2 px-6 w-full",
     "xl2" : "py-4 px-6 "
 }
-const defaultStuyles = "rounded-xl flex font-light justify-center items-center cursor-pointer hover:bg-indigo-600"
+const defaultStuyles = "rounded-xl flex font-light justify-center items-center cursor-pointer hover:bg-indigo-600 text-nowrap"
 
 export const Button = (props :  ButtonProps) => {
     return   <button onClick={props.onClick} disabled={props.loading} className={`${variantsStyles[props.variants]} ${defaultStuyles} ${sizeStyles[props.size]}  ${props.fullwidth? "w-full flex justify-center" : ""} ${props.loading? 'loading..': ""}  ${props.loading ? "opacity-45" : ""}`  } >

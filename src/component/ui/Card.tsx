@@ -49,16 +49,16 @@ export function Card({ title, link, type,_id }: Cradprops) {
       <ShareModel openShare={openShare} closeShare={()=> setOpenShare((e)=>!e)}/>
       <div  className="bg-white border border-gray-200 max-w-86 rounded-md min-h-40 min-w-72 ">
         <div className="flex justify-between">
-          <div className="flex items-center p-2">
+          <div className="flex items-center p-2 cursor-pointer">
             <ShareIcon size="md" />
             <div className="pl-2">{title}</div>
           </div>
           <div className="flex items-center text-gray-500">
-            <div  className="pr-2">
+            <div  className="pr-2 cursor-pointer">
                 <DeleteIcon size="md" onClick={() => DeleteCard(_id)}   />
              
             </div>
-            <div className="pr-2">
+            <div className="pr-2 cursor-pointer">
               <ShareIcon size="md" onClick={()=>setOpenShare((e)=>!e)}/>
             </div>
           </div>

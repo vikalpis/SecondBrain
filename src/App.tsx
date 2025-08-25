@@ -9,6 +9,7 @@ import HeroSection from './pages/Hero'
 import LearnMore from './pages/LearnMore'
 import HowItWorks from './pages/HowItWorks'
 import Layout from './pages/NotFound'
+import SharePage from './pages/SharePage'
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
       <Route path='/Login' element={<Login/>}/>
       <Route path='/Dashboard' element={<Dashboard/>}/>
       <Route path='/Dashboard/content' element={<CreateContentModel/>}/>
+      <Route path='/share/:hash' element={<SharePage/>}/>
 
     </Routes>
     </BrowserRouter>

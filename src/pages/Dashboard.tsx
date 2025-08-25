@@ -7,31 +7,11 @@ import { Button } from '../component/ui/Button'
 import { CreateContentModel } from '../component/ui/CreateContentModel'
 import { PlusIcon } from "../icons/PlusIcon"
 import { ShareIcon } from '../icons/ShareIcon'
-import axios from 'axios'
-import { BACKEND_URL } from '../component/ui/config'
 import { SearchInput } from '../component/ui/SearchInput'
 
 function Dashboard() {
   const [openModel, setOpenModel] = useState(false)
   const { contents, setType } = useContent()   // make sure useContent returns setContents
-
-
-
-  async function shareHandler(share:string){
-    try {
-      await axios.post(`${BACKEND_URL}/api/v1/content/brain/share`, {
-        headers : {
-          token : localStorage.getItem("token") || ""
-        },
-        data:{
-          share
-        }
-      })
-    } catch (error) {
-      console.log(error);
-      
-    }
-  }
 
   return (
     <div className="flex flex-col md:flex-row">
@@ -57,7 +37,6 @@ function Dashboard() {
             text="Share Brain"
             size="md"
             startIcon={<ShareIcon size="md" />}
-            onClick={()=>shareHandler}
           />
         </div>
 
