@@ -4,14 +4,14 @@ import { CrossIcon } from "../../icons/CrossIcon";
 import { Button } from "./Button";
 import { BACKEND_URL } from "./config";
 
-export function ShareModel({ openShare, closeShare }: any) {
+export function ShareModel({ openShare, closeShare , contentId}: any) {
   const [shareLink, setShareLink] = useState<string>("");
 
-  async function shareHandler(share: boolean) {
+  async function shareHandler(contentId:string,share: boolean) {
     try {
       const res = await axios.post(
         `${BACKEND_URL}/api/v1/content/brain/share`,
-        { share },
+        {contentId, share },
         {
           headers: {
             token: localStorage.getItem("token") || "",
@@ -66,7 +66,7 @@ export function ShareModel({ openShare, closeShare }: any) {
                   text="Copy"
                   fullwidth={true}
                   onClick={async () => {
-                    await shareHandler(true);
+                    await shareHandler(contentId,true);
                     await handleCopy();
                   }}
                 />
