@@ -56,14 +56,14 @@ export function ShareModel({ openShare, closeShare , contentId}: any) {
               <div className="text-2xl ">
                 {shareLink
                   ? `Your link: ${shareLink}`
-                  : "Click copy to generate share link"}
+                  : "Click to generate share link"}
               </div>
 
               <div className="p-2">
                 <Button
                   variants="primary"
                   size="sm"
-                  text="Copy"
+                  text={shareLink ? "Copy" : "Generate link"}
                   fullwidth={true}
                   onClick={async () => {
                     await shareHandler(contentId,true);

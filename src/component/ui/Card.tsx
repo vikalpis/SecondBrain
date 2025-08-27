@@ -5,6 +5,7 @@ import { BACKEND_URL } from "./config";
 import { useContent } from "../../hooks/useContent";
 import { ShareModel } from "./ShareModel";
 import { useState } from "react";
+import {TitleIcon} from "../../icons/TitleIcon"
 
 interface Cradprops {
   _id : string;
@@ -50,7 +51,7 @@ export function Card({ title, link, type,_id }: Cradprops) {
       <div  className="bg-white border border-gray-200 max-w-86 rounded-md min-h-40 min-w-72 ">
         <div className="flex justify-between">
           <div className="flex items-center p-2 cursor-pointer">
-            <ShareIcon size="md" />
+            <TitleIcon size="md" />
             <div className="pl-2">{title}</div>
           </div>
           <div className="flex items-center text-gray-500">

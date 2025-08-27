@@ -6,13 +6,20 @@ import { Card } from '../component/ui/Card'
 import { Button } from '../component/ui/Button'
 import { CreateContentModel } from '../component/ui/CreateContentModel'
 import { PlusIcon } from "../icons/PlusIcon"
-import { ShareIcon } from '../icons/ShareIcon'
+// import { ShareIcon } from '../icons/ShareIcon'
 import { SearchInput } from '../component/ui/SearchInput'
+import { useNavigate } from 'react-router-dom'
+// import { LogOut } from '../component/ui/LogOut'
 
 function Dashboard() {
   const [openModel, setOpenModel] = useState(false)
   const { contents, setType } = useContent()   // make sure useContent returns setContents
+  const navigate = useNavigate()
 
+  function LogOut (){
+    localStorage.clear()
+    navigate("/Login")
+  }
   return (
     <div className="flex flex-col md:flex-row">
       <Sidebar onSelectType={(type) => setType(type)} />
@@ -32,11 +39,13 @@ function Dashboard() {
             startIcon={<PlusIcon size="lg" />}
             onClick={() => setOpenModel(e => !e)}
           />
+          {/* <LogOut/> */}
           <Button
             variants="secondary"
-            text="Share Brain"
+            text="LogOut"
             size="md"
-            startIcon={<ShareIcon size="md" />}
+            // startIcon={<LogOutIcon size="sm" />}
+            onClick={LogOut}
           />
         </div>
 

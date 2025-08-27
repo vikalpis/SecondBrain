@@ -27,7 +27,7 @@ export default function HeroSection() {
         password
     });
     alert("you are signed UP!")
-    // useNavigate("/Login")
+    navigate("/Login")
 }
 
   return (
