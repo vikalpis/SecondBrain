@@ -24,7 +24,7 @@ function Dashboard() {
     <div className="flex flex-col md:flex-row">
       <Sidebar onSelectType={(type) => setType(type)} />
 
-      <div className="p-4 md:ml-72 min-h-screen bg-gray-200 border-2 w-full">
+      <div className="p-4  h-screen bg-gray-200 border-2 w-full overflow-hidden">
         <CreateContentModel
           open={openModel}
           closeModel={() => setOpenModel(e => !e)}
@@ -49,7 +49,7 @@ function Dashboard() {
           />
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="sm:flex gap-3 flex-col-1 ">
           {contents.map(({ _id, type, link, title }) => (
             <Card
               key={_id || link}
