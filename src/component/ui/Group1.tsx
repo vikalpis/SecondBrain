@@ -1,5 +1,5 @@
-export function Group1(){
-   return <svg width="818" height="1226" viewBox="0 0 818 1226" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+export function Group1(props:any){
+   return <svg {...props} width="818" height="1226" viewBox="0 0 818 1226" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 <rect width="817.333" height="1226" fill="url(#pattern0_20_47)"/>
    <defs>
    <pattern id="pattern0_20_47" patternContentUnits="objectBoundingBox" width="1" height="1">
