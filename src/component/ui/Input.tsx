@@ -1,11 +1,18 @@
 export interface inputprops {
+    variants : variants;
     onChange ?: (e:any)=>void;
     placeholder: string;
     ref ?: any ;
  
 }
-export function Input ({onChange, placeholder, ref,}: inputprops){
+type variants = "primary" | "secondary"
+
+const variantsStyle = {
+    primary : "w-full block px-4 py-2 border border-[#E4229D] rounded-4xl  focus:outline-none",
+    secondary : ""
+}
+export function Input ({onChange, placeholder, ref, variants}: inputprops){
     return <div>
-        <input required ref={ref} placeholder={placeholder} type="text"  className="w-full block px-4 py-2 border border-gray-300 rounded m-2 focus:border-indigo-500 focus:ring-indigo-500" onChange={onChange} />
+        <input required ref={ref} placeholder={placeholder}  type="text" className={`${variantsStyle[variants]}`} onChange={onChange} />
     </div>
 }

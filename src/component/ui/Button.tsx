@@ -13,7 +13,7 @@ interface ButtonProps {
     loading?: boolean;
 }
 const variantsStyles = {
-    "primary" : "bg-blue-600 text-white ",
+    "primary" : "bg-[#062A55] text-[#e4229d] hover:text-[#062A55] ",
     "secondary" : "bg-blue-200 text-blue-600 hover:text-white"
 }
 const sizeStyles = {
@@ -23,7 +23,7 @@ const sizeStyles = {
     "xl" :  "py-2 px-6 w-full",
     "xl2" : "py-4 px-6 "
 }
-const defaultStuyles = "rounded-xl flex font-light justify-center items-center cursor-pointer hover:bg-indigo-600 text-nowrap"
+const defaultStuyles = "rounded-xl flex font-semibold tracking:tighter font-serif justify-center items-center cursor-pointer hover:bg-[#E4229D] text-nowrap text-xl "
 
 export const Button = (props :  ButtonProps) => {
     return   <button onClick={props.onClick} disabled={props.loading} className={`${variantsStyles[props.variants]} ${defaultStuyles} ${sizeStyles[props.size]}  ${props.fullwidth? "w-full flex justify-center" : ""} ${props.loading? 'loading..': ""}  ${props.loading ? "opacity-45" : ""}`  } >

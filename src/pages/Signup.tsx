@@ -41,20 +41,31 @@ export function Signup(){
         
     }
     return <div>
-    <div className="h-screen w-screen bg-black/76 flex justify-center items-center ">
+    <div className="h-screen w-full bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#fd7acd] to-100%  justify-center items-center">
     
-    <div className="rounded-xl bg-white border p-8 ">
-    <div className=" flex justify-center text-blue-400">
+    <div className="text-4xl  flex justify-center font-bold font-serif py-16 tracking-tighter bg-gradient-to-r from-[#000205] from-40% via-[#e4229d] to-[#d0e3f3]  bg-clip-text text-transparent">
+        Welcome Back!
+    </div>
+    <div className="flex justify-center">
+    <div className="rounded-[60px] bg-white/30 backdrop-blur-lg p-8 ">
+    <div className=" flex justify-center text-[#062A55] font-semibold text-2xl font-serif min-w-md">
         SignUp
     </div>
-    <form onSubmit ={handleSignup} className="flex flex-col gap-4">
-        <Input ref={usernameRef}  placeholder="Username" />
-        <Input ref={passwordRef} placeholder="Password"/>
+    <form onSubmit ={handleSignup} className="flex flex-col gap-10 px-6 py-15 justify-center">
+        <div>
+            <div className="font-semibold tracking-tighter text-xl font-serif text-[#062A55] px-2">Username:</div>
+        <Input variants="primary" ref={usernameRef}  placeholder="Username" />
+        </div>
+        <div>
+            <div className="font-semibold tracking-tighter text-xl font-serif text-[#062A55] px-2">Password:</div>
+        <Input variants="primary" ref={passwordRef} placeholder="Password"/>
+        </div>
+        
 
-        <div className="flex  justify-center" >
+        <div className="flex  justify-center " >
         <Button 
         variants="primary" 
-        text="Submit" 
+        text="SignUp" 
         size="md" 
         fullwidth={true} 
         loading={disabled}
@@ -62,6 +73,7 @@ export function Signup(){
    
         </div>
         </form>
+    </div>
     </div>
         </div>
         </div>
