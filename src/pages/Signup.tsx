@@ -3,7 +3,8 @@ import { Button } from "../component/ui/Button";
 import { Input } from "../component/ui/Input";
 import axios from "axios";
 import { BACKEND_URL } from "../component/ui/config";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 export function Signup(){
     const usernameRef = useRef<HTMLInputElement>(null);
@@ -41,12 +42,12 @@ export function Signup(){
         
     }
     return <div>
-    <div className="h-screen w-full bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#fd7acd] to-100%  justify-center items-center">
+    <div className="h-screen w-full bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#DA82C8] to-100%  justify-center items-center  ">
     
-    <div className="text-4xl  flex justify-center font-bold font-serif py-16 tracking-tighter bg-gradient-to-r from-[#000205] from-40% via-[#e4229d] to-[#d0e3f3]  bg-clip-text text-transparent">
-        Welcome Back!
+    <div className="text-4xl  flex justify-center font-bold font-serif py-16 tracking-tighter bg-gradient-to-r from-[#062A55] from-40% via-[#e4229d] to-[#d0e3f3]  bg-clip-text text-transparent">
+        Welcome To SecondBrain 
     </div>
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
     <div className="rounded-[60px] bg-white/30 backdrop-blur-lg p-8 ">
     <div className=" flex justify-center text-[#062A55] font-semibold text-2xl font-serif min-w-md">
         SignUp
@@ -70,7 +71,12 @@ export function Signup(){
         fullwidth={true} 
         loading={disabled}
         />
+       
    
+        </div>
+
+        <div className="mt-[-34px]">
+            already have an account? <Link className="text-[#062A55] font-semibold" to="/login">Login</Link>
         </div>
         </form>
     </div>

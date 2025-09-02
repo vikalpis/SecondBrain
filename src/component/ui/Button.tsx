@@ -13,7 +13,7 @@ interface ButtonProps {
     loading?: boolean;
 }
 const variantsStyles = {
-    "primary" : "bg-[#062A55] text-[#e4229d] hover:text-[#062A55] ",
+    "primary" : "bg-[#062A55] text-[#e4229d] hover:text-[#062A55] transition-transform duration-500 hover:scale-105",
     "secondary" : "bg-blue-200 text-blue-600 hover:text-white"
 }
 const sizeStyles = {

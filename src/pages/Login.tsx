@@ -3,7 +3,7 @@ import { Button } from "../component/ui/Button";
 import { Input } from "../component/ui/Input";
 import axios from "axios";
 import { BACKEND_URL } from "../component/ui/config";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Login() {
   const usernameRef = useRef<HTMLInputElement>(null);
@@ -44,28 +44,45 @@ export function Login() {
     }
   }
 
-  return (
-    <div className="h-screen w-screen bg-black/76 flex justify-center items-center">
-      <div className="rounded-xl bg-white border p-8">
-        <div className="flex justify-center text-blue-400">Login</div>
-
-        
-        <form onSubmit={handleLogin} className="flex flex-col gap-4">
-          <Input ref={usernameRef} placeholder="Username"  />
-          <Input ref={passwordRef} placeholder="Password"   />
-
-          <div className="flex justify-center">
-            <Button
-              variants="primary"
-              text="Submit"
-              size="md"
-              fullwidth={true}
-              loading={disabled}
-              
-            />
-          </div>
-        </form>
+  return <div>
+  <div className="h-screen w-full bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#DA82C8] to-100%  justify-center items-center  ">
+  
+  <div className="text-4xl  flex justify-center font-bold font-serif py-16 tracking-tighter bg-gradient-to-r from-[#062A55] from-40% via-[#e4229d] to-[#d0e3f3]  bg-clip-text text-transparent">
+      Welcome Back!
+  </div>
+  <div className="flex justify-center ">
+  <div className="rounded-[60px] bg-white/30 backdrop-blur-lg p-8 ">
+  <div className=" flex justify-center text-[#062A55] font-semibold text-2xl font-serif min-w-md">
+      LogIn
+  </div>
+  <form onSubmit ={handleLogin} className="flex flex-col gap-10 px-6 py-15 justify-center">
+      <div>
+          <div className="font-semibold tracking-tighter text-xl font-serif text-[#062A55] px-2">Username:</div>
+      <Input variants="primary" ref={usernameRef}  placeholder="Username" />
       </div>
-    </div>
-  );
+      <div>
+          <div className="font-semibold tracking-tighter text-xl font-serif text-[#062A55] px-2">Password:</div>
+      <Input variants="primary" ref={passwordRef} placeholder="Password"/>
+      </div>
+      
+
+      <div className="flex  justify-center " >
+      <Button 
+      variants="primary" 
+      text="LogIn" 
+      size="md" 
+      fullwidth={true} 
+      loading={disabled}
+      />
+ 
+      </div>
+
+      <div className="mt-[-34px]">
+            new user? Register here: <Link className="text-[#062A55] font-semibold" to="/Signup">SignUp</Link>
+        </div>
+      </form>
+  </div>
+  </div>
+      </div>
+      </div>
 }
