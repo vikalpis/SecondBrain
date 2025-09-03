@@ -21,10 +21,10 @@ function Dashboard() {
     navigate("/Login")
   }
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="flex flex-col bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#DA82C8] to-100% md:flex-row">
       <Sidebar onSelectType={(type) => setType(type)} />
 
-      <div className="p-4  h-screen bg-gray-200 border-2 w-full overflow-hidden">
+      <div className="p-4  h-screen bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#DA82C8] to-100%  w-full overflow-hidden">
         <CreateContentModel
           open={openModel}
           closeModel={() => setOpenModel(e => !e)}
@@ -41,7 +41,7 @@ function Dashboard() {
           />
           {/* <LogOut/> */}
           <Button
-            variants="secondary"
+            variants="primary"
             text="LogOut"
             size="md"
             // startIcon={<LogOutIcon size="sm" />}

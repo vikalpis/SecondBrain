@@ -7,11 +7,11 @@ export function SidebarItem({text,icon, onClick}:
         onClick ?: ()=> void
     }
 ){
-    return <div onClick={onClick} className="flex  shadow m-6 rounded hover:bg-gray-200 cursor-pointer transition-all duration-300">
-        <div className="p-2">
+    return <div onClick={onClick} className="flex bg-[#D0E3F3]  shadow m-6 rounded  cursor-pointer hover:scale-105 transition-all duration-300">
+        <div className="p-2 text-[#E4229D]">
             {icon} 
         </div>
-        <div className="p-2">
+        <div className="p-2 text-[#062A55] font-serif">
            {text}  
         </div>
          

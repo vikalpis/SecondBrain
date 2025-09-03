@@ -75,8 +75,11 @@ export const SearchInput = ({ placeholder }: { placeholder: string }) => {
             : "w-full"
         )}
       >
-        <div className="p-2 rounded-2xl bg-white shadow flex items-center">
-          <SearchIcon size="lg"  />
+        <div className="p-2 rounded-2xl bg-[#D0E3F3] shadow flex items-center">
+          <div className="bg-[#E4229D] rounded-full size-10 flex justify-center items-center cursor-pointer">
+             <SearchIcon size="lg"  />
+          </div>
+         
           <input
             value={query}
             type="text"

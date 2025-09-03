@@ -31,13 +31,13 @@ export function Sidebar({ onSelectType }: { onSelectType: (type: string) => void
             animate={{ x: 0 }}
             exit={{ x: -250 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className={` h-screen w-64 bg-transparent border-r shadow-lg z-40 
+            className={` h-screen bg-transparent  
               ${isOpen ? "sm:w-64" : "sm:w-72 sm:block hidden"}`}
           >
             {/* Logo Section */}
-            <div className="flex items-center p-4 cursor-pointer border-b">
-              <LogoIcon size="xl" />
-              <span className="ml-2 font-bold text-2xl tracking-tight">SecondBrain</span>
+            <div className="flex items-center p-4 cursor-pointer ">
+              <LogoIcon size="2xl" />
+              <span className="m-3 font-bold text-2xl font-serif tracking-tight bg-gradient-to-r from-[#062A55] to-[#e4229d] bg-clip-text text-transparent">SecondBrain</span>
             </div>
 
             {/* Sidebar Items */}
