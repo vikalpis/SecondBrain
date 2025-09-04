@@ -36,26 +36,35 @@ export function CreateContentModel({open, closeModel}: any){
         }
       }
     return <div>
-       {open &&  <div className=" w-screen h-screen bg-transparent fixed top-0 left-0 flex justify-center">
+       {open &&  <div className=" w-screen h-screen bg-transparent backdrop-blur-sm fixed top-0 left-0 flex justify-center">
 
-        <div className="flex flex-col justify-center max-w-72">
-            <span className="bg-white opacity-100 p-4 rounded ">
+        <div className="flex flex-col justify-center ">
+            <span className="bg-white/40 backdrop-blur-sm z-40 opacity-100 p-4 rounded-2xl ">
               
-            <div className="flex justify-end cursor-pointer " onClick={closeModel}>
+            <div className="flex justify-end cursor-pointer  " onClick={closeModel}>
                     <CrossIcon size="lg" />
                     
                 </div>
-               <div>
+               <div className="gap-4 flex flex-col">
+                <div className="text-lg font-semibold text-[#062A55] ">
+                  Title
                 <Input variants="primary" ref={titleRef} placeholder={"Title"}/>
+
+                </div>
+
+                <div className="text-lg font-semibold text-[#062A55] ">
+                  Link
                 <Input variants="primary" ref={linkRef} placeholder={"Link"}/>
+
+                </div>
               
 
                </div>
                <div className="flex justify-center items-center p-4 gap-2">
-                <Button text="Youtube" variants={type === ContentType.Youtube ? "primary" : "secondary"} size="md" onClick={()=>{
+                <Button text="Youtube" variants={type === ContentType.Youtube ? "primary2" : "secondary"} size="sm" onClick={()=>{
                     setType(ContentType.Youtube)
                     }}/>
-                <Button text="Twitter" variants={type === ContentType.Twitter ? "primary"  :"secondary"} size="md" onClick={()=>{
+                <Button text="Twitter" variants={type === ContentType.Twitter ? "primary2"  :"secondary"} size="sm" onClick={()=>{
                     setType(ContentType.Twitter)
                     }}/>                    
                </div>
