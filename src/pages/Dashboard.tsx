@@ -24,6 +24,11 @@ function Dashboard() {
     <div className="flex flex-col bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#DA82C8] to-100% md:flex-row">
       <Sidebar onSelectType={(type) => setType(type)} />
 
+        {/* for smartphones */}
+        <div className='sm: hidden'>
+
+        </div>
+
       <div className="p-4  h-screen bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#DA82C8] to-100%  w-full overflow-hidden">
         <CreateContentModel
           open={openModel}
@@ -33,7 +38,7 @@ function Dashboard() {
         <div className="flex flex-col sm:flex-row justify-end gap-2 mb-4">
           <SearchInput placeholder='Search your Brain'/>
           <Button
-            variants="primary"
+            variants="primary2"
             text="Add Content"
             size="sm"
             startIcon={<PlusIcon size="lg" />}
@@ -41,9 +46,9 @@ function Dashboard() {
           />
           {/* <LogOut/> */}
           <Button
-            variants="primary"
+            variants="primary2"
             text="LogOut"
-            size="md"
+            size="sm"
             // startIcon={<LogOutIcon size="sm" />}
             onClick={LogOut}
           />

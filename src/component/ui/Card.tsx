@@ -48,9 +48,9 @@ export function Card({ title, link, type,_id }: Cradprops) {
   return (
     <div>
       <ShareModel openShare={openShare} closeShare={()=> setOpenShare((e)=>!e) } contentId={_id}/>
-      <div  className="backdrop-blur-sm bg-[#D0E3F3] drop-shadow-[#062A55]  rounded-md min-h-40 min-w-40 ">
-        <div className="flex justify-between">
-          <div className="flex items-center p-2 cursor-pointer">
+      <div  className="bg-[#D0E3F3]  rounded-md min-h-40 min-w-40 ">
+        <div className="flex justify-between ">
+          <div className="flex items-center p-2 cursor-pointer ">
             <TitleIcon size="md" />
             <div className="pl-2">{title}</div>
           </div>

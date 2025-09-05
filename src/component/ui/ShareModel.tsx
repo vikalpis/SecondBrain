@@ -43,9 +43,9 @@ export function ShareModel({ openShare, closeShare , contentId}: any) {
   return (
     <div>
       {openShare && (
-        <div className="w-screen h-screen bg-slate-400 opacity-60 fixed top-0 left-0 flex justify-center">
+        <div className="w-screen h-screen  backdrop-blur-sm fixed top-0 left-0 flex justify-center">
           <div className="flex items-center justify-center ">
-            <div className="bg-white rounded-2xl p-2">
+            <div className="bg-[#D0E3F3]/70 rounded-2xl p-4">
               <div
                 className="flex justify-end cursor-pointer "
                 onClick={closeShare}
@@ -53,7 +53,7 @@ export function ShareModel({ openShare, closeShare , contentId}: any) {
                 <CrossIcon size="lg" onClick={closeShare} />
               </div>
 
-              <div className="text-2xl ">
+              <div className="text-2xl tracking-tighter font-mono ">
                 {shareLink
                   ? `Your link: ${shareLink}`
                   : "Click to generate share link"}
