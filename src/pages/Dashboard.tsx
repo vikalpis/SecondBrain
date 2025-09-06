@@ -54,7 +54,7 @@ function Dashboard() {
           />
         </div>
 
-        <div className="sm:flex gap-3 flex-col-1 ">
+        <div className="sm:flex gap-8 flex-col-1 ">
           {contents.map(({ _id, type, link, title }) => (
             <Card
               key={_id || link}

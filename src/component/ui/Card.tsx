@@ -6,6 +6,7 @@ import { useContent } from "../../hooks/useContent";
 import { ShareModel } from "./ShareModel";
 import { useState } from "react";
 import {TitleIcon} from "../../icons/TitleIcon"
+import { TweetEmbed } from "./TweetEmbed";
 
 interface Cradprops {
   _id : string;
@@ -48,7 +49,7 @@ export function Card({ title, link, type,_id }: Cradprops) {
   return (
     <div>
       <ShareModel openShare={openShare} closeShare={()=> setOpenShare((e)=>!e) } contentId={_id}/>
-      <div  className="bg-[#D0E3F3]  rounded-md min-h-40 min-w-40 ">
+      <div  className="bg-[#D0E3F3] shadow-sm rounded-md min-h-40 min-w-40 hover:shadow-2xl cursor-pointer overflow-hidden">
         <div className="flex justify-between ">
           <div className="flex items-center p-2 cursor-pointer ">
             <TitleIcon size="md" />
@@ -78,9 +79,7 @@ export function Card({ title, link, type,_id }: Cradprops) {
           )}
 
           {type === "Twitter" && (
-            <blockquote className="twitter-tweet">
-              <a href={link.replace("x", "twitter")}></a>
-            </blockquote>
+            <TweetEmbed link={link}/>
           )}
 
          

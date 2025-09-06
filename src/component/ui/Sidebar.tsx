@@ -41,7 +41,12 @@ export function Sidebar({ onSelectType }: { onSelectType: (type: string) => void
             </div>
 
             {/* Sidebar Items */}
-            <div className="flex flex-col gap-1 mt-2 text-gray-600">
+            <div className="flex flex-col gap-1 mt-2 text-gray-600 ">
+            <SidebarItem
+                icon={<DocumentIcon />}
+                text="All"
+                onClick={() => onSelectType("")}
+              />
               <SidebarItem
                 icon={<TwitterIcon />}
                 text="Twitter"
@@ -57,11 +62,7 @@ export function Sidebar({ onSelectType }: { onSelectType: (type: string) => void
                 text="Document"
                 onClick={() => onSelectType("Document")}
               />
-              <SidebarItem
-                icon={<DocumentIcon />}
-                text="All"
-                onClick={() => onSelectType("")}
-              />
+
             </div>
           </motion.aside>
         )}

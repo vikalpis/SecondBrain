@@ -9,7 +9,7 @@ type variants = "primary" | "secondary"
 
 const variantsStyle = {
     primary : "w-full block px-4 py-2 border border-[#E4229D] rounded-4xl  focus:outline-none transition-transform duration-500 hover:scale-105",
-    secondary : ""
+    secondary : "transition-all duration-200 focus:ring-2 focus:ring-[#e4229d]/50 focus:border-[#e4229d]"
 }
 export function Input ({onChange, placeholder, ref, variants}: inputprops){
     return <div>
