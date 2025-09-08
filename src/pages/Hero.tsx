@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Group1 } from '../../src/component/ui/Group1'
 import { Lightbulb, Tag, Search, Share, Globe, Bookmark, Menu, X } from "lucide-react"
 import { Footer } from '../component/ui/Footer'
+import { Link } from "react-router-dom"
 
 const features = [
   {
@@ -57,17 +58,24 @@ export default function HeroSection() {
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex gap-8">
+        <div className="hidden md:flex gap-8 relative z-50">
           <div className="text-[#486285] font-serif p-2">ABOUT</div>
           <div className="text-[#486285] font-serif p-2">PRODUCTS</div>
           <div className="text-[#486285] font-serif p-2">CONTACT</div>
         </div>
 
         {/* Desktop SignUp */}
-        <div className="hidden md:flex shadow-[#e4229d]">
-          <span className="px-4 py-1 shadow-2xl text-lg md:text-2xl font-serif border-2 border-[#e4229d]">
+        <div className="hidden md:flex md:gap-2 shadow-[#e4229d] relative z-50">
+        <Link
+          to="/Signup"
+          className="px-4 py-1 shadow-2xl text-lg font-serif border-2 border-[#e4229d]">
             SignUp
-          </span>
+          </Link>
+          <Link
+          to="/Login"
+          className="px-4 py-1 shadow-2xl text-lg font-serif border-2 border-[#e4229d]">
+            LogIn
+          </Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -84,9 +92,11 @@ export default function HeroSection() {
           <div className="text-[#486285] font-serif">ABOUT</div>
           <div className="text-[#486285] font-serif">PRODUCTS</div>
           <div className="text-[#486285] font-serif">CONTACT</div>
-          <span className="px-4 py-1 shadow-2xl text-lg font-serif border-2 border-[#e4229d]">
+          <Link
+          to="/Signup"
+          className="px-4 py-1 shadow-2xl text-lg font-serif border-2 border-[#e4229d]">
             SignUp
-          </span>
+          </Link>
         </div>
       )}
 
