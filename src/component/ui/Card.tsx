@@ -1,12 +1,12 @@
-import axios from "axios";
+
 import { DeleteIcon } from "../../icons/DeleteIcon";
 import { ShareIcon } from "../../icons/ShareIcon";
-import { BACKEND_URL } from "./config";
-import { useContent } from "../../hooks/useContent";
+
 import { ShareModel } from "./ShareModel";
 import { useState } from "react";
 import {TitleIcon} from "../../icons/TitleIcon"
 import { TweetEmbed } from "./TweetEmbed";
+import { DeleteModel } from "./DeleteModel";
 
 interface Cradprops {
   _id : string;
@@ -28,27 +28,29 @@ function getYoutubeEmbedUrl(url: string) {
  
 
 export function Card({ title, link, type,_id }: Cradprops) {
-  const {setContents} = useContent()
+  // const {setContents} = useContent()
   const [openShare, setOpenShare] = useState(false)
+  const [openDelete, setOpenDelete] = useState(false)
    // delete logic
-   async function DeleteCard(id: string) {
-    try {
-      await axios.delete(`${BACKEND_URL}/api/v1/content`, {
-        headers: {
-          token: localStorage.getItem("token") || ""
-        },
-        data: { id }   // 👈 sending content id in body
-      })
+  //  async function DeleteCard(id: string) {
+  //   try {
+  //     await axios.delete(`${BACKEND_URL}/api/v1/content`, {
+  //       headers: {
+  //         token: localStorage.getItem("token") || ""
+  //       },
+  //       data: { id }   // 👈 sending content id in body
+  //     })
 
-      // update frontend state after deletion
-      setContents(prev => prev.filter(item => item._id !== id))
-    } catch (err) {
-      console.error("Error deleting content", err)
-    }
-  }
+  //     // update frontend state after deletion
+  //     setContents(prev => prev.filter(item => item._id !== id))
+  //   } catch (err) {
+  //     console.error("Error deleting content", err)
+  //   }
+  // }
   return (
     <div>
       <ShareModel openShare={openShare} closeShare={()=> setOpenShare((e)=>!e) } contentId={_id}/>
+        <DeleteModel openDelete={openDelete} closeDelete={()=> setOpenDelete((e)=>!e)} contentId={_id}/>
       <div  className="bg-[#D0E3F3] shadow-sm rounded-md min-h-40 min-w-40 hover:shadow-2xl cursor-pointer overflow-hidden">
         <div className="flex justify-between ">
           <div className="flex items-center p-2 cursor-pointer ">
@@ -57,7 +59,7 @@ export function Card({ title, link, type,_id }: Cradprops) {
           </div>
           <div className="flex items-center text-gray-500">
             <div  className="pr-2 cursor-pointer">
-                <DeleteIcon size="md" onClick={() => DeleteCard(_id)}   />
+                <DeleteIcon size="md" onClick={() => setOpenDelete((e)=>!e)}   />
              
             </div>
             <div className="pr-2 cursor-pointer">
