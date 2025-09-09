@@ -4,6 +4,7 @@ import { Lightbulb, Tag, Search, Share, Globe, Bookmark, Menu, X } from "lucide-
 import { Footer } from '../component/ui/Footer'
 import { Link } from "react-router-dom"
 
+
 const features = [
   {
     icon: <Lightbulb className="w-8 h-8 text-[#e4229d]" />,
@@ -49,6 +50,7 @@ export default function HeroSection() {
   const featureRows = chunkArray(features, 3)
 
   return (
+
     <div className="bg-[#d0e3F3] overflow-hidden">
       {/* Navbar */}
       <div className="flex justify-between items-center w-full px-6 md:px-16 py-6">
@@ -59,9 +61,9 @@ export default function HeroSection() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-8 relative z-50">
-          <div className="text-[#486285] font-serif p-2">ABOUT</div>
-          <div className="text-[#486285] font-serif p-2">PRODUCTS</div>
-          <div className="text-[#486285] font-serif p-2">CONTACT</div>
+        <Link className="text-[#486285] font-serif duration-200 animate-slideIn" to="/About">ABOUT</Link>
+          <Link className="text-[#486285] font-serif duration-300 animate-slideIn" to="/Product">PRODUCTS</Link>
+          <Link className="text-[#486285] font-serif duration-500 animate-slideIn cursor-pointer scroll-smooth" to="/Contact">CONTACT</Link>
         </div>
 
         {/* Desktop SignUp */}
@@ -79,7 +81,7 @@ export default function HeroSection() {
         </div>
 
         {/* Mobile Hamburger */}
-        <div className="md:hidden">
+        <div className="md:hidden relative z-50">
           <button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="w-8 h-8 text-[#e4229d]" /> : <Menu className="w-8 h-8 text-[#e4229d]" />}
           </button>
@@ -88,14 +90,19 @@ export default function HeroSection() {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden flex flex-col items-center gap-4 pb-6 bg-[#d0e3F3]">
-          <div className="text-[#486285] font-serif">ABOUT</div>
-          <div className="text-[#486285] font-serif">PRODUCTS</div>
-          <div className="text-[#486285] font-serif">CONTACT</div>
+        <div className="md:hidden flex flex-col items-center gap-4 pb-6 bg-[#d0e3F3] relative   ">
+          <Link className="text-[#486285] font-serif duration-200 animate-slideIn" to="/About">ABOUT</Link>
+          <Link className="text-[#486285] font-serif duration-300 animate-slideIn" to="/Product">PRODUCTS</Link>
+          <Link className="text-[#486285] font-serif duration-500 animate-slideIn cursor-pointer " to="/Contact">CONTACT</Link>
           <Link
           to="/Signup"
-          className="px-4 py-1 shadow-2xl text-lg font-serif border-2 border-[#e4229d]">
+          className="px-4 py-1 shadow-2xl rounded-xl text-lg font-serif border-2 border-[#e4229d] animate-slideIn duration-700">
             SignUp
+          </Link>
+          <Link
+          to="/LogIn"
+          className="px-4 py-1 shadow-2xl rounded-xl text-lg font-serif border-2 border-[#e4229d] animate-slideIn duration-700">
+            LogIn
           </Link>
         </div>
       )}
@@ -125,7 +132,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right image */}
-        <div className="w-full lg:w-2/5 -mt-35 -mb-46 flex justify-center">
+        <div className="w-full lg:w-2/5 -mt-35 -mb-40 flex justify-center">
           <Group1 className="w-3/4 md:w-full h-auto" />
         </div>
       </div>

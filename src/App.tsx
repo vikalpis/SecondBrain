@@ -8,6 +8,10 @@ import { CreateContentModel } from './component/ui/CreateContentModel'
 import HeroSection from './pages/Hero'
 import Layout from './pages/NotFound'
 import SharePage from './pages/SharePage'
+import Product from './pages/Product'
+import Contact from './pages/Contact'
+import About from './pages/About'
+
 
 function App() {
   
@@ -15,6 +19,9 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='*' element={<Layout/>}/>
+      <Route path='/Product'element={<Product/>}/>
+      <Route path='/Contact'element={<Contact/>}/>
+      <Route path='/About'element={<About/>}/>
       <Route path='/' element={<HeroSection/>}/>
       <Route path='/Signup' element={<Signup/>}/>
       <Route path='/Login' element={<Login/>}/>
