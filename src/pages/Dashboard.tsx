@@ -1,5 +1,5 @@
 // Dashboard.tsx
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Sidebar } from '../component/ui/Sidebar'
 import { useContent } from '../hooks/useContent'
 import { Card } from '../component/ui/Card'
@@ -9,23 +9,59 @@ import { PlusIcon } from "../icons/PlusIcon"
 // import { ShareIcon } from '../icons/ShareIcon'
 import { SearchInput } from '../component/ui/SearchInput'
 import { useNavigate } from 'react-router-dom'
+import Toaster from '../component/ui/DocumnetToaster'
 // import { LogOut } from '../component/ui/LogOut'
 
 function Dashboard() {
   const [openModel, setOpenModel] = useState(false)
   const { contents, setType } = useContent()   // make sure useContent returns setContents
   const navigate = useNavigate()
+  const [showToaster, setShowToaster] = useState(false)
 
   function LogOut (){
     localStorage.clear()
     navigate("/Login")
   }
+
+  function checkLogin(){
+    try{
+    const token =  localStorage.getItem("token");
+    if(!token){
+      alert("Please SignUp/Login first")
+      navigate("/Signup")
+    }else{
+      alert("welcome to the SecondBrain")
+    }
+    
+    }catch(err){
+      console.error(err)
+    }
+  }
+ useEffect(()=>{
+  checkLogin()
+  
+ },[Dashboard])
   return (
-    <div className="flex flex-col bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#DA82C8] to-100% md:flex-row">
-      <Sidebar onSelectType={(type) => setType(type)} />
+    <div className="flex flex-col bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#DA82C8] to-100% md:flex-row" >
+      
+      <Sidebar
+        onSelectType={(selectedType) => {
+          if (selectedType === "Document") {
+            setShowToaster(true); // ✅ trigger toaster
+          }
+          setType(selectedType);
+        }}
+      />
+
+      {/* Render toaster if triggered */}
+      {showToaster && (
+        <Toaster
+        onClose={() => setShowToaster(false)}
+        />
+      )}
 
         {/* for smartphones */}
-        <div className='sm: hidden'>
+        <div className='sm:hidden'>
 
         </div>
 

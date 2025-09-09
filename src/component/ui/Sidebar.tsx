@@ -6,7 +6,7 @@ import { LogoIcon } from "../../icons/LogoIcon";
 import { TwitterIcon } from "../../icons/TwitterIcon";
 import { YoutubeIcon } from "../../icons/YoutubeIcon";
 import { SidebarItem } from "./SidebarItem";
-// import { Menu, X } from "lucide-react"; // hamburger & close icons
+import { Menu, X } from "lucide-react"; // hamburger & close icons
 
 export function Sidebar({ onSelectType }: { onSelectType: (type: string) => void }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,14 +14,14 @@ export function Sidebar({ onSelectType }: { onSelectType: (type: string) => void
   return (
     <>
       {/* Mobile Toggle Button */}
-      {/* <div className="sm:hidden fixed top-4 left-4 z-50">
+      <div className="sm:hidden fixed top-4 left-4 z-50">
         <button
           onClick={() => setIsOpen((prev) => !prev)}
           className="p-2 bg-transparent rounded-lg shadow-md hover:bg-gray-100 transition"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </div> */}
+      </div>
 
       {/* Sidebar */}
       <AnimatePresence>

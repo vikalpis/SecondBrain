@@ -31,22 +31,7 @@ export function Card({ title, link, type,_id }: Cradprops) {
   // const {setContents} = useContent()
   const [openShare, setOpenShare] = useState(false)
   const [openDelete, setOpenDelete] = useState(false)
-   // delete logic
-  //  async function DeleteCard(id: string) {
-  //   try {
-  //     await axios.delete(`${BACKEND_URL}/api/v1/content`, {
-  //       headers: {
-  //         token: localStorage.getItem("token") || ""
-  //       },
-  //       data: { id }   // 👈 sending content id in body
-  //     })
 
-  //     // update frontend state after deletion
-  //     setContents(prev => prev.filter(item => item._id !== id))
-  //   } catch (err) {
-  //     console.error("Error deleting content", err)
-  //   }
-  // }
   return (
     <div>
       <ShareModel openShare={openShare} closeShare={()=> setOpenShare((e)=>!e) } contentId={_id}/>
