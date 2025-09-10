@@ -6,6 +6,8 @@ import { Input } from "../component/ui/Input"
 import axios from "axios"
 import { BACKEND_URL } from "../component/ui/config"
 import { Link, useNavigate } from "react-router-dom"
+import { signupSchema } from "../validation/schema"
+import type { SignupInput } from "../validation/schema";
 
 export function Signup() {
   const usernameRef = useRef<HTMLInputElement>(null)
@@ -14,30 +16,35 @@ export function Signup() {
   const [disabled, setDisabled] = useState(false)
 
   async function handleSignup(e: React.FormEvent) {
-    e.preventDefault()
-
-    const username = usernameRef.current?.value
-    const password = passwordRef.current?.value
-
-    if (!username || !password) {
-      alert("Both fields are required!")
-      return
+    e.preventDefault();
+  
+    const username = usernameRef.current?.value || "";
+    const password = passwordRef.current?.value || "";
+  
+    // ✅ Validate with Zod
+    const result = signupSchema.safeParse({ username, password });
+  
+    if (!result.success) {
+      alert(result.error.issues.map(err => err.message).join("\n"));
+      return;
     }
-
+  
     try {
-      setDisabled(true)
-      await axios.post(`${BACKEND_URL}/api/v1/user/signup`, {
-        username,
-        password,
-      })
-
-      alert("you are signed UP!")
-      navigate("/login")
-    } catch (err) {
-      console.error(err)
-      alert("Signup failed!")
+      setDisabled(true);
+  
+      const response = await axios.post(`${BACKEND_URL}/api/v1/user/signup`, result.data as SignupInput);
+      if(response)
+      alert(" You are signed UP!");
+      navigate("/login");
+    } catch (err: any) {
+      console.error(err);
+      if (err.response?.data?.errors) {
+        alert("⚠️ " + JSON.stringify(err.response.data.errors));
+      } else {
+        alert("Signup failed!");
+      }
     } finally {
-      setDisabled(false)
+      setDisabled(false);
     }
   }
 
