@@ -20,6 +20,7 @@ function Dashboard() {
   const [showToaster, setShowToaster] = useState(false)
   const [dashToaster, setDashToaster] = useState(false)
   function LogOut (){
+    alert("Do You Really Want To Logout ?")
     localStorage.clear()
     navigate("/Login")
   }

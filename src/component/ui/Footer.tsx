@@ -6,7 +6,7 @@ export function Footer() {
           
           {/* Brand */}
           <div>
-            <h1 className="text-2xl font-bold text-[#e4229d]">MyWebsite</h1>
+            <h1 className="text-2xl font-bold text-[#e4229d]">SecondBrain</h1>
             <p className="mt-3 text-sm text-[#d0e3f3]">
               Building a second brain for you — organized, simple & smart.
             </p>
@@ -17,9 +17,9 @@ export function Footer() {
             <h2 className="text-lg font-semibold text-[#e4229d]">Quick Links</h2>
             <ul className="mt-3 space-y-2">
               <li><a href="/" className="hover:text-[#486285]">Home</a></li>
-              <li><a href="#" className="hover:text-[#486285]">About</a></li>
-              <li><a href="#" className="hover:text-[#486285]">Services</a></li>
-              <li><a href="#" className="hover:text-[#486285]">Contact</a></li>
+              <li><a href="/About" className="hover:text-[#486285]">About</a></li>
+              <li><a href="/Product" className="hover:text-[#486285]">Product</a></li>
+              <li><a href="/Contact" className="hover:text-[#486285]">Contact</a></li>
             </ul>
           </div>
   

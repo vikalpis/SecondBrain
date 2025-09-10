@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const Product = () => {
+  const navigate = useNavigate();
     return (
       <section
         id="product"
@@ -60,7 +63,7 @@ const Product = () => {
             <li>✔ Basic search</li>
             <li>✔ Access on 1 device</li>
           </ul>
-          <button className="w-full py-3 bg-[#DA82C8] text-white rounded-xl hover:bg-[#e4229d] transition">
+          <button onClick={()=>navigate("/Signup")} className="w-full py-3 bg-[#DA82C8] text-white rounded-xl hover:bg-[#e4229d] transition cursor-pointer">
             Get Started
           </button>
         </div>
