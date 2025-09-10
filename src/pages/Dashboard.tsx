@@ -10,6 +10,7 @@ import { PlusIcon } from "../icons/PlusIcon"
 import { SearchInput } from '../component/ui/SearchInput'
 import { useNavigate } from 'react-router-dom'
 import Toaster from '../component/ui/DocumnetToaster'
+import WelcomeToaster from '../component/ui/Welcome'
 // import { LogOut } from '../component/ui/LogOut'
 
 function Dashboard() {
@@ -17,7 +18,7 @@ function Dashboard() {
   const { contents, setType } = useContent()   // make sure useContent returns setContents
   const navigate = useNavigate()
   const [showToaster, setShowToaster] = useState(false)
-
+  const [dashToaster, setDashToaster] = useState(false)
   function LogOut (){
     localStorage.clear()
     navigate("/Login")
@@ -30,7 +31,8 @@ function Dashboard() {
       alert("Please SignUp/Login first")
       navigate("/Signup")
     }else{
-      alert("welcome to the SecondBrain")
+      
+     setDashToaster(true)
     }
     
     }catch(err){
@@ -43,7 +45,7 @@ function Dashboard() {
  },[Dashboard])
   return (
     <div className="flex flex-col bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#DA82C8] to-100% md:flex-row" >
-      
+      {dashToaster && (<WelcomeToaster onClose={()=>setDashToaster(false)}/>)}
       <Sidebar
         onSelectType={(selectedType) => {
           if (selectedType === "Document") {
