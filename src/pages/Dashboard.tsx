@@ -65,7 +65,7 @@ function Dashboard() {
 
         {/* for smartphones */}
         <div className='sm:hidden'>
-
+        //task
         </div>
 
       <div className="p-4  h-screen bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#DA82C8] to-100%  w-full overflow-hidden">

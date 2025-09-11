@@ -36,7 +36,7 @@ export function Footer() {
   
         {/* Bottom bar */}
         <div className="border-t border-[#486285] text-center py-4 text-sm text-[#d0e3f3]">
-          © {new Date().getFullYear()} MyWebsite. All rights reserved.
+          © {new Date().getFullYear()} SecondBrain. All rights reserved.
         </div>
       </footer>
     );

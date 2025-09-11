@@ -12,14 +12,14 @@ const Contact = () => {
         <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-[#062A55]/10 rounded-full blur-sm animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-28 h-28 bg-white/15 rounded-full blur-sm animate-bounce"></div>
       </div>
-      <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Contact Creator</h3>
+      <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Contact To Creator</h3>
       <p className="mb-8 text-lg text-center max-w-xl text-[#062a55]">
         This is a practice project made by me. If you’d like to connect, here
         are my details 👇
       </p>
 
       <div className="bg-[#d0e3f3] text-[#062a55] p-8 rounded-2xl shadow-lg max-w-lg w-full">
-        <h4 className="text-2xl font-bold mb-4">Akash</h4>
+        <h4 className="text-2xl font-bold mb-4">Vikalp</h4>
         <p className="mb-6">
           Aspiring developer building projects to learn and grow. 🚀
         </p>

@@ -11,11 +11,14 @@ import SharePage from './pages/SharePage'
 import Product from './pages/Product'
 import Contact from './pages/Contact'
 import About from './pages/About'
+import { Toaster } from 'react-hot-toast'
 
 
 function App() {
   
   return (
+    <>
+    <Toaster position="top-center" reverseOrder={false} />
     <BrowserRouter>
     <Routes>
       <Route path='*' element={<Layout/>}/>
@@ -31,7 +34,7 @@ function App() {
 
     </Routes>
     </BrowserRouter>
- 
+    </>
   )  
   
    

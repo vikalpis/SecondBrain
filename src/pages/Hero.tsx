@@ -132,7 +132,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right image */}
-        <div className="w-full lg:w-2/5 -mt-35 -mb-40 flex justify-center">
+        <div className="w-full lg:w-2/5 -mt-25 -mb-35 flex justify-center">
           <Group1 className="w-3/4 md:w-full h-auto" />
         </div>
       </div>

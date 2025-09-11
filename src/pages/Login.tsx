@@ -4,6 +4,7 @@ import { Input } from "../component/ui/Input";
 import axios from "axios";
 import { BACKEND_URL } from "../component/ui/config";
 import { Link, useNavigate } from "react-router-dom";
+import { notifyError } from "../component/ui/ToastHelper";
 
 export function Login() {
   const usernameRef = useRef<HTMLInputElement>(null);
@@ -36,7 +37,7 @@ export function Login() {
       navigate("/dashboard");
     } catch (err) {
       console.error(err);
-      alert("Login failed!");
+      notifyError("Login failed!");
     } finally {
       setDisabled(false);
     }

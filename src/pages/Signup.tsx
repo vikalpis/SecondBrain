@@ -1,5 +1,5 @@
 import type React from "react"
-
+import { notifyError, notifySuccess } from "../component/ui/ToastHelper"
 import { useRef, useState } from "react"
 import { Button } from "../component/ui/Button"
 import { Input } from "../component/ui/Input"
@@ -15,6 +15,7 @@ export function Signup() {
   const navigate = useNavigate()
   const [disabled, setDisabled] = useState(false)
 
+  // notifySuccess("this is signup")
   async function handleSignup(e: React.FormEvent) {
     e.preventDefault();
   
@@ -25,28 +26,34 @@ export function Signup() {
     const result = signupSchema.safeParse({ username, password });
   
     if (!result.success) {
-      alert(result.error.issues.map(err => err.message).join("\n"));
+      notifyError(result.error.issues.map(err => err.message).join("\n"));
       return;
     }
   
     try {
       setDisabled(true);
-  
-      const response = await axios.post(`${BACKEND_URL}/api/v1/user/signup`, result.data as SignupInput);
-      if(response)
-      alert(" You are signed UP!");
-      navigate("/login");
+    
+      const response = await axios.post(
+        `${BACKEND_URL}/api/v1/user/signup`,
+        result.data as SignupInput
+      );
+    
+      if (response) {
+        notifySuccess("🎉 You are signed up!");
+        navigate("/login");
+      }
     } catch (err: any) {
       console.error(err);
+    
       if (err.response?.data?.errors) {
-        alert("⚠️ " + JSON.stringify(err.response.data.errors));
+        notifyError("⚠️ " + JSON.stringify(err.response.data.errors));
       } else {
-        alert("Signup failed!");
+        notifyError("Signup failed!");
       }
     } finally {
       setDisabled(false);
     }
-  }
+  }  
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-[#D0E3F3] via-[#B8D4F0] to-[#DA82C8] flex flex-col justify-center items-center px-4 sm:px-6 md:px-8 relative overflow-hidden">
