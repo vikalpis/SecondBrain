@@ -45,8 +45,14 @@ export function Signup() {
     } catch (err: any) {
       console.error(err);
     
-      if (err.response?.data?.errors) {
-        notifyError("⚠️ " + JSON.stringify(err.response.data.errors));
+      const data = err.response?.data;
+
+      if (data?.errors) {
+        // If backend sends array
+        notifyError("⚠️ " + data.errors.join("\n"));
+      } else if (data?.message) {
+        // If backend sends message only
+        notifyError("⚠️ " + data.message);
       } else {
         notifyError("Signup failed!");
       }
