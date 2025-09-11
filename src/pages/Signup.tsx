@@ -48,11 +48,20 @@ export function Signup() {
       const data = err.response?.data;
 
       if (data?.errors) {
-        // If backend sends array
-        notifyError("⚠️ " + data.errors.join("\n"));
+        // Your frontend Zod validation before request uses this
+        notifyError("⚠️ " + JSON.stringify(data.errors));
+      } else if (data?.issues) {
+        // Backend Zod validation
+        const issueMessages = Object.values(data.issues)
+          .flat()
+          .map((i: any) => (i?._errors ? i._errors.join(", ") : "Invalid input"))
+          .join("\n");
+        notifyError("⚠️ " + issueMessages);
       } else if (data?.message) {
-        // If backend sends message only
         notifyError("⚠️ " + data.message);
+      } else if (data?.messgae) {
+        // Handle typo in backend "messgae"
+        notifyError("⚠️ " + data.messgae);
       } else {
         notifyError("Signup failed!");
       }
