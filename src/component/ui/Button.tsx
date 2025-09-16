@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 
-type Varients = "primary" | "secondary" | "primary2"| "primary3"
+type Varients = "primary" | "secondary" | "primary2"| "primary3" |"secondary2"
 
 interface ButtonProps {
     variants: Varients
@@ -16,7 +16,8 @@ const variantsStyles = {
     "primary" : "bg-[#062A55]  text-[#e4229d] hover:text-[#062A55] transition-transform duration-500 hover:scale-105 ",
     "primary2" : "bg-[#fffff] inset-shadow-sm inset-shadow-white/80 text-[#062A55] hover:text-[#062A55] transition-transform duration-500 hover:scale-105 ",
     "primary3" : "relative z-10 bg-gradient-to-r from-[#062A55] to-[#e4229d] hover:from-[#e4229d] hover:to-[#062A55] transform hover:scale-[1.02] transition-all duration-200 shadow-lg",
-    "secondary" : "bg-[#D0E3F3] text-[#062A55] hover:text-[#062A55] transition-transform duration-500 hover:scale-105"
+    "secondary" : "bg-[#D0E3F3] text-[#062A55] hover:text-[#062A55] transition-transform duration-500 hover:scale-105",
+    "secondary2" : "bg-[#E4229D] inset-shadow-sm inset-shadow-white/80 text-[#062A55] hover:text-[#062A55] transition-transform duration-500 hover:scale-105 "
 }
 const sizeStyles = {
     "sm" : "py-1 px-2",
