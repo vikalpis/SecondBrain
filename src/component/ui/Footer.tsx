@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // Footer.tsx
 export function Footer() {
     return (
@@ -15,11 +17,11 @@ export function Footer() {
           {/* Links */}
           <div>
             <h2 className="text-lg font-semibold text-[#e4229d]">Quick Links</h2>
-            <ul className="mt-3 space-y-2">
-              <li><a href="/" className="hover:text-[#486285]">Home</a></li>
-              <li><a href="/About" className="hover:text-[#486285]">About</a></li>
-              <li><a href="/Product" className="hover:text-[#486285]">Product</a></li>
-              <li><a href="/Contact" className="hover:text-[#486285]">Contact</a></li>
+            <ul className="mt-3 space-y-2 ">
+            <Link to ="/" className="hover:text-[#486285]">Home</Link> <br />        
+              <Link to ="/About" className="hover:text-[#486285]">About</Link><br />         
+              <Link to ="/Product" className="hover:text-[#486285]">Product</Link> <br />        
+              <Link to ="/Contact" className="hover:text-[#486285]">Contact</Link><br />   
             </ul>
           </div>
   
