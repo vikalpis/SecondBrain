@@ -11,7 +11,7 @@ import { SearchInput } from '../component/ui/SearchInput'
 import { useNavigate } from 'react-router-dom'
 import Toaster from '../component/ui/DocumnetToaster'
 import WelcomeToaster from '../component/ui/Welcome'
-import { Logout } from '../component/ui/Logout'
+import { Logout } from '../component/ui/Logout.tsx'
 
 function Dashboard() {
   const [openModel, setOpenModel] = useState(false)
