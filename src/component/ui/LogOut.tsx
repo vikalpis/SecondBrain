@@ -12,7 +12,7 @@ export function Logout({openLogout, closeLogout}: any){
     }
     if(!openLogout) return null;
     return (
-        <>
+
          <div className="w-screen h-screen backdrop-blur-sm fixed top-0 left-0 flex justify-center">
       <div className="flex items-center justify-center">
         <div className="bg-[#D0E3F3]/70 rounded-2xl p-4">
@@ -43,6 +43,6 @@ export function Logout({openLogout, closeLogout}: any){
         </div>
       </div>
     </div>
-        </>
+        
     )
 }

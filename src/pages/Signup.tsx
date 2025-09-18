@@ -98,7 +98,7 @@ export function Signup() {
             {/* Username */}
             <div className="group">
               <div className="font-semibold tracking-tighter text-lg sm:text-xl font-serif text-[#062A55] px-2 mb-2 group-focus-within:text-[#e4229d] transition-colors duration-200">
-                Username:
+                Create Username:
               </div>
               <div className="relative">
                 <Input

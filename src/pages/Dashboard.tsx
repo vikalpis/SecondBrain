@@ -11,6 +11,7 @@ import { SearchInput } from '../component/ui/SearchInput'
 import { useNavigate } from 'react-router-dom'
 import Toaster from '../component/ui/DocumnetToaster'
 import WelcomeToaster from '../component/ui/Welcome'
+import { Logout } from '../component/ui/Logout'
 // import { LogOut } from '../component/ui/LogOut'
 
 function Dashboard() {
@@ -19,11 +20,12 @@ function Dashboard() {
   const navigate = useNavigate()
   const [showToaster, setShowToaster] = useState(false)
   const [dashToaster, setDashToaster] = useState(false)
-  function LogOut (){
-    alert("Do You Really Want To Logout ?")
-    localStorage.clear()
-    navigate("/Login")
-  }
+  const [openLogout, setOpenLogout] = useState(false)
+  // function LogOut (){
+  //   alert("Do You Really Want To Logout ?")
+  //   localStorage.clear()
+  //   navigate("/Login")
+  // }
 
   function checkLogin(){
     try{
@@ -46,6 +48,10 @@ function Dashboard() {
  },[Dashboard])
   return (
     <div className="flex flex-col bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#DA82C8] to-100% md:flex-row" >
+          {openLogout && (
+            <Logout openLogout={openLogout} closeLogout={()=> setOpenLogout(false)}/>
+          )}
+
       {dashToaster && (<WelcomeToaster onClose={()=>setDashToaster(false)}/>)}
       <Sidebar
         onSelectType={(selectedType) => {
@@ -62,11 +68,6 @@ function Dashboard() {
         onClose={() => setShowToaster(false)}
         />
       )}
-
-        {/* for smartphones */}
-        <div className='sm:hidden'>
-        //task
-        </div>
 
       <div className="p-4  h-screen bg-gradient-to-b from-[#D0E3F3] from-0%  to-[#DA82C8] to-100%  w-full overflow-hidden">
         <CreateContentModel
@@ -89,7 +90,7 @@ function Dashboard() {
             text="LogOut"
             size="sm"
             // startIcon={<LogOutIcon size="sm" />}
-            onClick={LogOut}
+            onClick= {()=>{setOpenLogout(e=>!e)}}  
           />
         </div>
 
