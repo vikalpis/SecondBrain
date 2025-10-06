@@ -49,7 +49,8 @@ Live demo: [second-brain-tawny.vercel.app](https://second-brain-tawny.vercel.app
 | Linting / Formatting | ESLint, Prettier |
 | State Management | (TBD / to be decided) |
 | Hosting / Deployment | Vercel |
-| Backend / Storage | database |
+| Backend | Another repo named SecondBrain-BE |
+| Storage | Database |
 
 From the template, some of the baseline configuration files include `eslint.config.js`, `tsconfig.*.json`, and `vite.config.ts`. :contentReference[oaicite:1]{index=1}
 
